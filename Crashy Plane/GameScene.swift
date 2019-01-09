@@ -56,6 +56,12 @@ class GameScene: SKScene {
             background.anchorPoint = CGPoint.zero
             background.position = CGPoint(x: (backgroundTexture.size().width * CGFloat(i)) - CGFloat(1 * i), y: 100)
             addChild(background)
+            
+            let moveLeft = SKAction.moveBy(x: -backgroundTexture.size().width, y: 0, duration: 20)
+            let moveReset = SKAction.moveBy(x: backgroundTexture.size().width, y: 0, duration: 0)
+            let moveLoop = SKAction.sequence([moveLeft,moveReset])
+            let moveForever = SKAction.repeatForever(moveLoop)
+            background.run(moveForever)
         }
     }
     
