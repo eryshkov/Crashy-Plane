@@ -9,25 +9,33 @@
 /* Begin PBXBuildFile section */
 		5CB3464121E5EB650046E590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3464021E5EB650046E590 /* AppDelegate.swift */; };
 		5CB3464321E5EB650046E590 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3464221E5EB650046E590 /* GameScene.sks */; };
-		5CB3464521E5EB650046E590 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3464421E5EB650046E590 /* Actions.sks */; };
 		5CB3464721E5EB650046E590 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3464621E5EB650046E590 /* GameScene.swift */; };
 		5CB3464921E5EB650046E590 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3464821E5EB650046E590 /* GameViewController.swift */; };
 		5CB3464C21E5EB650046E590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3464A21E5EB650046E590 /* Main.storyboard */; };
 		5CB3464E21E5EB6A0046E590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3464D21E5EB6A0046E590 /* Assets.xcassets */; };
 		5CB3465121E5EB6A0046E590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3464F21E5EB6A0046E590 /* LaunchScreen.storyboard */; };
+		5CB3465E21E5ED3C0046E590 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3465921E5ED3B0046E590 /* coin.wav */; };
+		5CB3465F21E5ED3C0046E590 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3465A21E5ED3B0046E590 /* explosion.wav */; };
+		5CB3466021E5ED3C0046E590 /* PlayerExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3465B21E5ED3B0046E590 /* PlayerExplosion.sks */; };
+		5CB3466121E5ED3C0046E590 /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3465C21E5ED3C0046E590 /* music.m4a */; };
+		5CB3466221E5ED3C0046E590 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3465D21E5ED3C0046E590 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5CB3463D21E5EB650046E590 /* Crashy Plane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crashy Plane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB3464021E5EB650046E590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CB3464221E5EB650046E590 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		5CB3464421E5EB650046E590 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		5CB3464621E5EB650046E590 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		5CB3464821E5EB650046E590 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5CB3464B21E5EB650046E590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CB3464D21E5EB6A0046E590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CB3465021E5EB6A0046E590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CB3465221E5EB6A0046E590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CB3465921E5ED3B0046E590 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
+		5CB3465A21E5ED3B0046E590 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		5CB3465B21E5ED3B0046E590 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerExplosion.sks; sourceTree = "<group>"; };
+		5CB3465C21E5ED3C0046E590 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
+		5CB3465D21E5ED3C0046E590 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +68,9 @@
 		5CB3463F21E5EB650046E590 /* Crashy Plane */ = {
 			isa = PBXGroup;
 			children = (
+				5CB3465821E5ED110046E590 /* Content */,
 				5CB3464021E5EB650046E590 /* AppDelegate.swift */,
 				5CB3464221E5EB650046E590 /* GameScene.sks */,
-				5CB3464421E5EB650046E590 /* Actions.sks */,
 				5CB3464621E5EB650046E590 /* GameScene.swift */,
 				5CB3464821E5EB650046E590 /* GameViewController.swift */,
 				5CB3464A21E5EB650046E590 /* Main.storyboard */,
@@ -71,6 +79,18 @@
 				5CB3465221E5EB6A0046E590 /* Info.plist */,
 			);
 			path = "Crashy Plane";
+			sourceTree = "<group>";
+		};
+		5CB3465821E5ED110046E590 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				5CB3465921E5ED3B0046E590 /* coin.wav */,
+				5CB3465A21E5ED3B0046E590 /* explosion.wav */,
+				5CB3465C21E5ED3C0046E590 /* music.m4a */,
+				5CB3465B21E5ED3B0046E590 /* PlayerExplosion.sks */,
+				5CB3465D21E5ED3C0046E590 /* spark.png */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,11 +151,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB3465F21E5ED3C0046E590 /* explosion.wav in Resources */,
+				5CB3466221E5ED3C0046E590 /* spark.png in Resources */,
+				5CB3465E21E5ED3C0046E590 /* coin.wav in Resources */,
+				5CB3466121E5ED3C0046E590 /* music.m4a in Resources */,
 				5CB3464C21E5EB650046E590 /* Main.storyboard in Resources */,
 				5CB3464321E5EB650046E590 /* GameScene.sks in Resources */,
+				5CB3466021E5ED3C0046E590 /* PlayerExplosion.sks in Resources */,
 				5CB3464E21E5EB6A0046E590 /* Assets.xcassets in Resources */,
 				5CB3465121E5EB6A0046E590 /* LaunchScreen.storyboard in Resources */,
-				5CB3464521E5EB650046E590 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
