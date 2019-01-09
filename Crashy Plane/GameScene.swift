@@ -229,7 +229,7 @@ extension GameScene: SKPhysicsContactDelegate {
                 addChild(explosion)
             }
             
-            let sound = SKAction.playSoundFileNamed("ecplosion.wav", waitForCompletion: false)
+            let sound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
             run(sound)
             
             player.removeFromParent()
