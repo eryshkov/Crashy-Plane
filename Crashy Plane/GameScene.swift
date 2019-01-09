@@ -65,11 +65,30 @@ class GameScene: SKScene {
         }
     }
     
+    func createGround() {
+        let groundTexture = SKTexture(imageNamed: "ground")
+        
+        for i in 0 ... 1 {
+            let ground = SKSpriteNode(texture: groundTexture)
+            ground.zPosition = -10
+            ground.position = CGPoint(x: (groundTexture.size().width / 2 + (groundTexture.size().width * CGFloat(i))), y: groundTexture.size().height / 2)
+            addChild(ground)
+            
+            let moveLeft = SKAction.moveBy(x: -groundTexture.size().width, y: 0, duration: 5)
+            let moveReset = SKAction.moveBy(x: groundTexture.size().width, y: 0, duration: 0)
+            let mooveLoop = SKAction.sequence([moveLeft, moveReset])
+            let mooveForever = SKAction.repeatForever(mooveLoop)
+            
+            ground.run(mooveForever)
+        }
+    }
+    
     //MARK: -
     override func didMove(to view: SKView) {
         createPlayer()
         createSky()
         createBackground()
+        createGround()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
