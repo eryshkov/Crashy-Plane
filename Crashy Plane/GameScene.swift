@@ -104,16 +104,23 @@ class GameScene: SKScene {
         let rockTexture = SKTexture(imageNamed: "rock")
         
         let topRock = SKSpriteNode(texture: rockTexture)
+        topRock.physicsBody = SKPhysicsBody(texture: rockTexture, size: rockTexture.size())
+        topRock.physicsBody?.isDynamic = false
+        
         topRock.zRotation = .pi
         topRock.xScale = -1.0
         
         let bottomRock = SKSpriteNode(texture: rockTexture)
+        bottomRock.physicsBody = SKPhysicsBody(texture: rockTexture, size: rockTexture.size())
+        bottomRock.physicsBody?.isDynamic = false
         
         topRock.zPosition = -20
         bottomRock.zPosition = -20
         
         let rockCollision = SKSpriteNode(color: UIColor.red, size: CGSize(width: 32, height: frame.height))
         rockCollision.name = "scoreDetect"
+        rockCollision.physicsBody = SKPhysicsBody(rectangleOf: rockCollision.size)
+        rockCollision.physicsBody?.isDynamic = false
         
         addChild(topRock)
         addChild(bottomRock)
@@ -186,8 +193,34 @@ class GameScene: SKScene {
         player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        let value = player.physicsBody!.velocity.dy * 0.001
+        let rotate = SKAction.rotate(toAngle: value, duration: 0.1)
+        
+        player.run(rotate)
+    }
+    
 }
 //MARK: -
 extension GameScene: SKPhysicsContactDelegate {
-    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.node?.name == "scoreDetect" || contact.bodyB.node?.name == "scoreDetect" {
+            if contact.bodyA.node == player {
+                contact.bodyB.node?.removeFromParent()
+            }else{
+                contact.bodyA.node?.removeFromParent()
+            }
+            
+            let sound = SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false)
+            run(sound)
+            
+            score += 1
+            
+            return
+        }
+        
+        guard contact.bodyA.node != nil && contact.bodyB.node != nil else {
+            return
+        }
+    }
 }
