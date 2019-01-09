@@ -47,10 +47,23 @@ class GameScene: SKScene {
         topSky.zPosition = -40
     }
     
+    func createBackground() {
+        let backgroundTexture = SKTexture(imageNamed: "background")
+        
+        for i in 0 ... 1 {
+            let background = SKSpriteNode(texture: backgroundTexture)
+            background.zPosition = -30
+            background.anchorPoint = CGPoint.zero
+            background.position = CGPoint(x: (backgroundTexture.size().width * CGFloat(i)) - CGFloat(1 * i), y: 100)
+            addChild(background)
+        }
+    }
+    
     //MARK: -
     override func didMove(to view: SKView) {
         createPlayer()
         createSky()
+        createBackground()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
