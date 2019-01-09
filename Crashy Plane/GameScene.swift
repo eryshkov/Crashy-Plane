@@ -121,6 +121,7 @@ class GameScene: SKScene {
         rockCollision.name = "scoreDetect"
         rockCollision.physicsBody = SKPhysicsBody(rectangleOf: rockCollision.size)
         rockCollision.physicsBody?.isDynamic = false
+        rockCollision.physicsBody?.collisionBitMask = 0
         
         addChild(topRock)
         addChild(bottomRock)
