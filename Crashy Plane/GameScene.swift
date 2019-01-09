@@ -29,6 +29,12 @@ class GameScene: SKScene {
         
         addChild(player)
         
+        player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
+        player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
+        player.physicsBody?.isDynamic = true
+        
+//        player.physicsBody!.collisionBitMask = 0
+        
         let frame2 = SKTexture(imageNamed: "player-2")
         let frame3 = SKTexture(imageNamed: "player-3")
         let animation = SKAction.animate(with: [playerTexture, frame2, frame3, frame2], timePerFrame: 0.01)
@@ -79,6 +85,10 @@ class GameScene: SKScene {
             let ground = SKSpriteNode(texture: groundTexture)
             ground.zPosition = -10
             ground.position = CGPoint(x: (groundTexture.size().width / 2 + (groundTexture.size().width * CGFloat(i))), y: groundTexture.size().height / 2)
+            
+            ground.physicsBody = SKPhysicsBody(texture: ground.texture!, size: ground.texture!.size())
+            ground.physicsBody?.isDynamic = false
+            
             addChild(ground)
             
             let moveLeft = SKAction.moveBy(x: -groundTexture.size().width, y: 0, duration: 5)
@@ -160,6 +170,9 @@ class GameScene: SKScene {
     
     //MARK: -
     override func didMove(to view: SKView) {
+        physicsWorld.gravity = CGVector(dx: 0, dy: -5.0)
+        physicsWorld.contactDelegate = self
+        
         createPlayer()
         createSky()
         createBackground()
@@ -169,7 +182,12 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
     }
+    
+}
+//MARK: -
+extension GameScene: SKPhysicsContactDelegate {
     
 }
