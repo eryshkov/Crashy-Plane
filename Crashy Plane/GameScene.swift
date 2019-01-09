@@ -126,13 +126,25 @@ class GameScene: SKScene {
         rockCollision.run(moveSequence)
     }
     
+    func startRocks() {
+        let create = SKAction.run {[unowned self] in
+            self.createRocks()
+        }
+        
+        let wait = SKAction.wait(forDuration: 3)
+        let sequence = SKAction.sequence([create, wait])
+        let repeatForever = SKAction.repeatForever(sequence)
+        
+        run(repeatForever)
+    }
+    
     //MARK: -
     override func didMove(to view: SKView) {
         createPlayer()
         createSky()
         createBackground()
         createGround()
-        createRocks()
+        startRocks()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
