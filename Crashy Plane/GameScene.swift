@@ -13,6 +13,12 @@ class GameScene: SKScene {
     //MARK: -
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
+    var backgroundMusic: SKAudioNode!
+    
+    var logo: SKSpriteNode!
+    var gameOver: SKSpriteNode!
+    
+    var gameState = GameState.showingLogo
     
     var score = 0 {
         didSet {
@@ -31,7 +37,7 @@ class GameScene: SKScene {
         
         player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
-        player.physicsBody?.isDynamic = true
+        player.physicsBody?.isDynamic = false
         
 //        player.physicsBody!.collisionBitMask = 0
         
@@ -117,7 +123,7 @@ class GameScene: SKScene {
         topRock.zPosition = -20
         bottomRock.zPosition = -20
         
-        let rockCollision = SKSpriteNode(color: UIColor.red, size: CGSize(width: 32, height: frame.height))
+        let rockCollision = SKSpriteNode(color: UIColor.clear, size: CGSize(width: 32, height: frame.height))
         rockCollision.name = "scoreDetect"
         rockCollision.physicsBody = SKPhysicsBody(rectangleOf: rockCollision.size)
         rockCollision.physicsBody?.isDynamic = false
@@ -176,25 +182,63 @@ class GameScene: SKScene {
         addChild(scoreLabel)
     }
     
+    func createLogos() {
+        logo = SKSpriteNode(imageNamed: "logo")
+        logo.position = CGPoint(x: frame.midX, y: frame.midY)
+        addChild(logo)
+        
+        gameOver = SKSpriteNode(imageNamed: "gameover")
+        gameOver.position = CGPoint(x: frame.midX, y: frame.midY)
+        gameOver.alpha = 0
+        addChild(gameOver)
+    }
+    
     //MARK: -
     override func didMove(to view: SKView) {
         physicsWorld.gravity = CGVector(dx: 0, dy: -5.0)
         physicsWorld.contactDelegate = self
+        if let musicURL = Bundle.main.url(forResource: "music", withExtension: "m4a") {
+            backgroundMusic = SKAudioNode(url: musicURL)
+            addChild(backgroundMusic)
+        }
         
         createPlayer()
         createSky()
         createBackground()
         createGround()
-        startRocks()
+        createLogos()
         createScore()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
+        switch gameState {
+        case .showingLogo:
+            gameState = .playing
+            
+            let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+            let remove = SKAction.removeFromParent()
+            let wait = SKAction.wait(forDuration: 0.5)
+            let activatePlayer = SKAction.run {[unowned self] in
+                self.player.physicsBody?.isDynamic = true
+                self.startRocks()
+            }
+            let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
+            logo.run(sequence)
+        case .playing:
+            player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
+        case .dead:
+            let scene = GameScene(fileNamed: "GameScene")!
+            let transition = SKTransition.moveIn(with: .right, duration: 1)
+            self.view?.presentScene(scene, transition: transition)
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
+        guard player != nil else {
+            return
+        }
+        
         let value = player.physicsBody!.velocity.dy * 0.001
         let rotate = SKAction.rotate(toAngle: value, duration: 0.1)
         
@@ -233,6 +277,9 @@ extension GameScene: SKPhysicsContactDelegate {
             let sound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
             run(sound)
             
+            gameOver.alpha = 1
+            gameState = .dead
+            backgroundMusic.run(SKAction.stop())
             player.removeFromParent()
             speed = 0
         }
