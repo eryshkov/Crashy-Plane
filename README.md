@@ -21,6 +21,9 @@
 * uses `SpriteKit`
 * uses `SKAudioNode`
 
+## Credits
+* marvelous art - [Kenney](https://opengameart.org/users/kenney)
+
 ## License
 
 This project is licensed under the MIT License.
