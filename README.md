@@ -1,8 +1,9 @@
 #  Crashy Plane
 
 <div align = "center">
-<img src="/screens/1.jpeg" width="40%">        
-<img src="/screens/2.jpeg" width="40%">       
+<img src="/screens/1.jpeg" width="30%">        
+<img src="/screens/2.jpeg" width="30%">       
+<img src="/screens/3.jpeg" width="30%">       
 </div>
 
 <p align="center">
@@ -13,7 +14,7 @@
 <img src="https://img.shields.io/badge/licence-MIT-lightgray.svg" alt="Licence MIT"/>
 </p>
 
-[Demo video here]()
+[Demo video here](https://youtu.be/Ej8h-AmEejA)
 
 ## Main functionality
 * simple sprite kit game
