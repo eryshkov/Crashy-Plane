@@ -38,6 +38,10 @@
 		5CB3465C21E5ED3C0046E590 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
 		5CB3465D21E5ED3C0046E590 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		5CB3466321E73F430046E590 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		5CB3466521E74DB20046E590 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5CB3466721E74FA50046E590 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		5CB3466821E74FA50046E590 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		5CB3466921E74FA50046E590 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		5CB3463421E5EB640046E590 = {
 			isa = PBXGroup;
 			children = (
+				5CB3466621E74DBB0046E590 /* screens */,
+				5CB3466521E74DB20046E590 /* README.md */,
 				5CB3463F21E5EB650046E590 /* Crashy Plane */,
 				5CB3463E21E5EB650046E590 /* Products */,
 			);
@@ -94,6 +100,16 @@
 				5CB3465D21E5ED3C0046E590 /* spark.png */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		5CB3466621E74DBB0046E590 /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				5CB3466821E74FA50046E590 /* 1.jpeg */,
+				5CB3466721E74FA50046E590 /* 2.jpeg */,
+				5CB3466921E74FA50046E590 /* 3.jpeg */,
+			);
+			path = screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +341,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Z256VMH9HM;
 				INFOPLIST_FILE = "Crashy Plane/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +361,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Z256VMH9HM;
 				INFOPLIST_FILE = "Crashy Plane/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
