@@ -22,7 +22,10 @@
 * uses `SKAudioNode`
 
 ## Credits
-* marvelous art - [Kenney](https://opengameart.org/users/kenney)
+* Background, ground, player, rock graphics by - [Kenney](https://opengameart.org/users/kenney)
+* Music by [ShwiggityShwag](http://opengameart.org/content/8-bit-the-hero) – "8 Bit The Hero"
+* Coin sound by [Luke.RUSTLD](http://opengameart.org/content/10-8bit-coin-sounds) - "10 8Bit Coin Sounds"
+* Explosion sound by [Luke.RUSTLD](http://opengameart.org/content/bombexplosion8bit) - "Bomb Explosion 8bit"
 
 ## License
 
